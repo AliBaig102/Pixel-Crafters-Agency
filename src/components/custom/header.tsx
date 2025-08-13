@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { MapPin, Search, User, Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "@/contexts/theme-context";
 import { useState } from "react";
+import Image from "next/image";
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -12,13 +13,26 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <header className="container bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 px-3 sm:px-4 py-3 rounded-xl fixed z-[99999] top-2 left-1/2 -translate-x-1/2 shadow-lg dark:shadow-gray-900/20 max-w-[95vw] ">
+    <header className="container backdrop-blur-sm border border-gray-200 dark:border-gray-700 px-3 sm:px-4 py-3 rounded-xl fixed z-[99999] top-2 left-1/2 -translate-x-1/2 shadow-lg dark:shadow-gray-900/20 max-w-[95vw] ">
       {/* Desktop Layout */}
       <div className="hidden lg:flex items-center justify-between gap-4">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <h1 className="text-xl xl:text-2xl font-bold text-primary">
-            Pixel Crafters
+        <div className="flex items-center gap-2 ">
+          <Image
+            src="/images/logo.png"
+            alt="Pixel Crafters"
+            width={100}
+            height={100}
+            className="size-12 rounded-lg"
+          />
+          <h1 className="text-xl font-extrabold text-primary tracking-tight leading-none">
+            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              Pixel
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-primary/70 to-primary bg-clip-text text-transparent">
+              Crafters.
+            </span>
           </h1>
         </div>
 
@@ -133,7 +147,7 @@ export function Header() {
         </div>
 
         {/* Search Bar (Tablet - always visible, Mobile - toggleable) */}
-        <div className={`mt-3 sm:block ${isSearchOpen ? 'block' : 'hidden'}`}>
+        <div className={`mt-3 sm:block ${isSearchOpen ? "block" : "hidden"}`}>
           <div className="relative">
             <Input
               type="text"

@@ -11,6 +11,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import Image from "next/image";
 
 interface FooterSection {
   title: string;
@@ -49,7 +50,7 @@ const footerSections: FooterSection[] = [
 
 export function Footer() {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 rounded-t-3xl">
+    <footer className="border dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 rounded-t-3xl">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -57,9 +58,24 @@ export function Footer() {
             {/* Brand Section */}
             <div className="lg:col-span-4">
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-primary">
-                  Pixel Crafters
-                </h2>
+                <div className="flex items-center gap-2 ">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Pixel Crafters"
+                    width={100}
+                    height={100}
+                    className="size-12 rounded-lg"
+                  />
+                  <h1 className="text-xl font-extrabold text-primary tracking-tight leading-none">
+                    <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                      Pixel
+                    </span>
+                    <br />
+                    <span className="bg-gradient-to-r from-primary/70 to-primary bg-clip-text text-transparent">
+                      Crafters.
+                    </span>
+                  </h1>
+                </div>
                 <p className="text-gray-600 dark:text-gray-400 mt-4 leading-relaxed">
                   We craft digital experiences that drive results. From stunning
                   websites to powerful marketing campaigns, we help businesses
