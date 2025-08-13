@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="container mx-auto relative min-h-screen transition-colors duration-300 mb-40 lg:mb-0">
+    <section className="container mx-auto relative min-h-screen transition-colors duration-300 mb-52 sm:mb-40 lg:mb-0">
       {/* Main Hero Content */}
       <div className="px-4 py-12 sm:py-16 lg:py-24 xl:py-36">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -46,7 +46,7 @@ export function HeroSection() {
           </div>
 
           {/* Mobile: Image First, Desktop: Image Second */}
-          <div className="order-1 lg:order-2 relative">
+          <div className="order-1 lg:order-2 relative mt-16 lg:mt-0">
             <div className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl overflow-hidden">
               <div className="text-center text-gray-500 dark:text-gray-400 p-8">
                 <div className="grid grid-cols-2 gap-4 mb-6">
@@ -113,9 +113,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="h-0.5 bg-white/30"></div>
+        <div className="h-0.5 bg-white/30 hidden sm:block"></div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 -bottom-10 gap-4 absolute left-1/2 -translate-x-1/2 px-4 lg:bottom-0 translate-y-1/2 w-[90%] sm:w-[85%] lg:w-[90%]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 -bottom-24 sm:-bottom-10 gap-4 absolute left-1/2 -translate-x-1/2 px-4 lg:bottom-0 translate-y-1/2 w-[90%] sm:w-[85%] lg:w-[90%]">
           <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl px-3 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center shadow-xl">
             <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
               8+
