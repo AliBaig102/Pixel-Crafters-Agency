@@ -1,7 +1,17 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Code,
+  Palette,
+  Star,
+  TrendingUp,
+  ShoppingCart,
+  Smartphone,
+} from "lucide-react";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -16,44 +26,51 @@ interface Service {
   id: number;
   title: string;
   description: string;
+  icon: string;
 }
 
 const services: Service[] = [
   {
     id: 1,
-    title: "UI/UX Design",
+    title: "Web Development",
     description:
-      "Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem...",
+      "Building modern, responsive websites and web apps with cutting-edge tech. Creating performant solutions that drive business growth.",
+    icon: "code",
   },
   {
     id: 2,
-    title: "Motion Graphics",
+    title: "UI/UX Design",
     description:
-      "Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem...",
+      "Creating beautiful, user-centered designs that combine aesthetics with intuitive functionality for exceptional digital experiences.",
+    icon: "palette",
   },
   {
     id: 3,
-    title: "Motion Graphics",
+    title: "Brand Identity",
     description:
-      "Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem...",
+      "Crafting memorable brand identities with logos, guidelines and visual systems that make your business stand out from competitors.",
+    icon: "star",
   },
   {
     id: 4,
-    title: "Web Development",
+    title: "Digital Marketing",
     description:
-      "Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem...",
+      "Driving growth through strategic marketing campaigns. SEO, content, social media and paid ads to boost your online visibility.",
+    icon: "trending-up",
   },
   {
     id: 5,
-    title: "Brand Identity",
+    title: "E-commerce Solutions",
     description:
-      "Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem...",
+      "Building conversion-focused online stores with seamless UX and robust backend systems to power your digital retail success.",
+    icon: "shopping-cart",
   },
   {
     id: 6,
-    title: "Digital Marketing",
+    title: "Mobile App Development",
     description:
-      "Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem...",
+      "Developing engaging native and cross-platform mobile apps. From concept to launch, we create flawless mobile experiences.",
+    icon: "smartphone",
   },
 ];
 
@@ -69,13 +86,17 @@ export function ServicesSlider() {
   };
 
   return (
-    <section className="container border mx-auto p-10 my-20 rounded-3xl dark:border-gray-800">
+    <section className="container border mx-auto p-4 sm:p-6 lg:p-10 my-12 sm:my-16 lg:my-20 rounded-2xl sm:rounded-3xl dark:border-gray-800">
       <div className="px-4">
         {/* Header */}
-        <div className="mb-16">
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-8">
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 sm:mb-6 lg:mb-8">
             Our Services
           </h2>
+          <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl">
+            We offer comprehensive digital solutions to help your business
+            thrive in the digital landscape.
+          </p>
         </div>
 
         {/* Services Slider */}
@@ -96,6 +117,10 @@ export function ServicesSlider() {
             breakpoints={{
               320: {
                 slidesPerView: 1,
+                spaceBetween: 12,
+              },
+              640: {
+                slidesPerView: 1.5,
                 spaceBetween: 16,
               },
               768: {
@@ -107,52 +132,57 @@ export function ServicesSlider() {
                 spaceBetween: 24,
               },
             }}
-            className="services-swiper"
+            className="services-swiper gap-4"
           >
             {services.map((service) => (
               <SwiperSlide key={service.id}>
-                <div className="group my-6 mx-3 relative rounded-3xl p-8 h-full transition-all duration-300 bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 hover:border-purple-300 dark:hover:border-purple-500 shadow-lg hover:shadow-xl hover:bg-primary dark:hover:bg-primary cursor-pointer">
-                  {/* Header */}             
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-white transition-colors duration-300">
+                <div className="group my-3 sm:my-6 relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 h-full transition-all duration-300 bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 hover:border-primary dark:hover:border-primary shadow-lg hover:shadow-xl hover:bg-primary dark:hover:bg-primary cursor-pointer">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-white transition-colors duration-300">
                       {service.title}
                     </h3>
                     <Button
                       size="sm"
-                      className="rounded-full p-0! size-10 bg-primary text-white group-hover:bg-white group-hover:text-primary transition-all duration-300"
+                      className="rounded-full p-0 size-8 sm:size-10 bg-primary text-white group-hover:bg-white group-hover:text-primary transition-all duration-300"
                     >
-                      <ArrowUpRight className="size-8" />
+                      <ArrowUpRight className="size-4 sm:size-5" />
                     </Button>
                   </div>
 
                   {/* Divider */}
-                  <div className="h-px mb-6 bg-gray-200 dark:bg-gray-700 group-hover:bg-white/30 transition-colors duration-300"></div>
+                  <div className="h-px mb-4 sm:mb-6 bg-gray-200 dark:bg-gray-700 group-hover:bg-white/30 transition-colors duration-300"></div>
 
                   {/* Description */}
-                  <p className="text-sm lg:text-base mb-8 leading-relaxed text-gray-600 dark:text-gray-300 group-hover:text-white/90 transition-colors duration-300">
+                  <p className="text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed text-gray-600 dark:text-gray-300 group-hover:text-white/90 transition-colors duration-300">
                     {service.description}
                   </p>
 
-                  {/* Placeholder Image */}
-                  <div className="aspect-video rounded-2xl flex items-center justify-center bg-gray-100 dark:bg-gray-800 group-hover:bg-white/20 group-hover:backdrop-blur-sm transition-all duration-300">
+                  {/* Service Icon */}
+                  <div className="aspect-video rounded-xl sm:rounded-2xl flex items-center justify-center bg-gray-100 dark:bg-gray-800 group-hover:bg-white/20 group-hover:backdrop-blur-sm transition-all duration-300">
                     <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 rounded-xl flex items-center justify-center bg-gray-200 dark:bg-gray-700 group-hover:bg-white/20 transition-all duration-300">
-                        <svg
-                          className="w-8 h-8 text-gray-400 dark:text-gray-500 group-hover:text-white/70 transition-colors duration-300"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={1.5}
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 rounded-lg sm:rounded-xl flex items-center justify-center bg-primary/10 group-hover:bg-white/20 transition-all duration-300">
+                        {service.icon === "code" && (
+                          <Code className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
+                        )}
+                        {service.icon === "palette" && (
+                          <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
+                        )}
+                        {service.icon === "star" && (
+                          <Star className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
+                        )}
+                        {service.icon === "trending-up" && (
+                          <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
+                        )}
+                        {service.icon === "shopping-cart" && (
+                          <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
+                        )}
+                        {service.icon === "smartphone" && (
+                          <Smartphone className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
+                        )}
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400 group-hover:text-white/70 transition-colors duration-300">
-                        Service Image
+                        {service.title}
                       </p>
                     </div>
                   </div>
@@ -162,47 +192,47 @@ export function ServicesSlider() {
           </Swiper>
 
           {/* Navigation Controls */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mt-6 sm:mt-8">
             {/* Navigation Arrows */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handlePrev}
-                className="rounded-full p-0! size-10 border-2 border-gray-300 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-all duration-300"
+                className="rounded-full p-0 size-8 sm:size-10 border-2 border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300"
               >
-                <ArrowLeft className="size-5 text-gray-600 dark:text-gray-300" />
+                <ArrowLeft className="size-4 sm:size-5 text-gray-600 dark:text-gray-300" />
               </Button>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handleNext}
-                className="rounded-full p-0! size-10 border-2 border-gray-300 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-all duration-300"
+                className="rounded-full p-0 size-8 sm:size-10 border-2 border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300"
               >
-                <ArrowRight className="size-5 text-gray-600 dark:text-gray-300" />
+                <ArrowRight className="size-4 sm:size-5 text-gray-600 dark:text-gray-300" />
               </Button>
             </div>
 
             {/* Custom Pagination */}
-            <div className="custom-pagination flex items-center gap-2 w-fit!"></div>
+            <div className="custom-pagination flex items-center gap-1 sm:gap-2"></div>
           </div>
         </div>
 
         {/* Bottom Text */}
-        <div className="my-20 text-center">
-          <p className="text-xl lg:text-3xl leading-relaxed max-w-4xl mx-auto dark:text-gray-200">
+        <div className="my-12 sm:my-16 lg:my-20 text-center">
+          <p className="text-lg sm:text-xl lg:text-3xl leading-relaxed max-w-4xl mx-auto dark:text-gray-200">
             <span className="text-primary font-semibold">
-              Ipsum dolor sit
+              Ready to transform
             </span>{" "}
-            amet,{" "}
+            your digital presence?{" "}
             <span className="text-primary font-semibold">
-              consectetur adipiscing
+              Let&apos;s create something
             </span>{" "}
-            elit, sed do eiusmod tempor ut labore et{" "}
-            <span className="text-gray-400 dark:text-gray-500">dolore magna</span>{" "}
-            aliqua.{" "}
+            amazing together. From concept to{" "}
+            <span className="text-gray-400 dark:text-gray-500">launch</span>,{" "}
+            we&apos;re here to help.{" "}
             <span className="text-primary font-semibold">
-              Lore...
+              Get started today.
             </span>
           </p>
         </div>

@@ -1,134 +1,133 @@
 import React from "react";
 import { Button } from "../ui/button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Code, Palette, Star, TrendingUp } from "lucide-react";
 
 interface Service {
+  id: number;
   title: string;
   description: string;
-  isHighlighted?: boolean;
+  icon: string;
+  highlighted?: boolean;
 }
 
 const services: Service[] = [
   {
-    title: "Digital Marketing",
+    id: 1,
+    title: "Web Development",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in...",
-    isHighlighted: false,
+      "Custom websites and web applications built with cutting-edge technologies for optimal performance.",
+    icon: "code"
   },
   {
-    title: "Digital Marketing",
+    id: 2,
+    title: "UI/UX Design",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in...",
-    isHighlighted: true,
+      "User-centered design that combines beautiful aesthetics with intuitive functionality and seamless experiences.",
+    icon: "palette",
+    highlighted: true,
   },
   {
-    title: "Digital Marketing",
+    id: 3,
+    title: "Brand Identity",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in...",
-    isHighlighted: false,
+      "Complete brand identity solutions that make your business memorable and distinctive in the market.",
+    icon: "star"
   },
   {
+    id: 4,
     title: "Digital Marketing",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in...",
-    isHighlighted: false,
+      "Strategic digital marketing campaigns that drive growth and boost your online presence effectively.",
+    icon: "trending-up"
   },
 ];
 
 export function ServicesSection() {
   return (
-    <section className="grid grid-cols-2 gap-8 container mx-auto my-20 px-4 bg-white dark:bg-gray-900 transition-colors duration-300">
-      {/* Left Side Image */}
-      <div className="relative">
-        <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded-3xl flex items-center justify-center shadow-2xl">
-          <div className="text-center text-gray-500 dark:text-gray-400">
-            <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 rounded-2xl flex items-center justify-center">
-              <svg
-                className="w-12 h-12 text-purple-600 dark:text-purple-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-            </div>
-            <p className="text-sm font-medium">Placeholder Image</p>
-            <p className="text-xs">500 x 500</p>
-          </div>
-        </div>
-      </div>
+    <section className="container mx-auto p-4 sm:p-6 lg:p-10 my-12 sm:my-16 lg:my-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
 
-      {/* Right Side Services */}
-      <div className="grid grid-cols-2 gap-4">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className={`p-6 rounded-3xl flex flex-col odd:translate-y-12 even:translate-y-24 border-2 transition-all duration-300 shadow-lg hover:shadow-xl ${
-              service.isHighlighted
-                ? "bg-gradient-to-br from-purple-600 to-purple-700 border-purple-600 text-white"
-                : "bg-white dark:bg-gray-800 border-purple-300 dark:border-purple-600 hover:border-purple-400 dark:hover:border-purple-500"
-            }`}
-          >
-            {/* Header with Arrow Icon */}
-            <div className="flex items-center justify-between mb-4">
-              <Button
-                size="sm"
-                variant="outline"
-                className={`rounded-full p-0 w-10 h-10 transition-all duration-300 ${
-                  service.isHighlighted
-                    ? "border-white/30 bg-white/10 hover:bg-white/20 text-white"
-                    : "border-gray-300 dark:border-gray-600 hover:border-purple-400 dark:hover:border-purple-500 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-700"
-                }`}
-              >
-                <ArrowUpRight className="w-5 h-5" />
-              </Button>
-            </div>
-            
-            <div className="grow">
-              {/* Service Title */}
-              <h3
-                className={`text-lg font-semibold mb-3 ${
-                  service.isHighlighted ? "text-white" : "text-gray-900 dark:text-white"
-                }`}
-              >
-                {service.title}
-              </h3>
-
-              {/* Service Description */}
-              <p
-                className={`text-sm mb-6 leading-relaxed ${
-                  service.isHighlighted ? "text-white/90" : "text-gray-600 dark:text-gray-300"
-                }`}
-              >
-                {service.description}
+        {/* Left Side - Image */}
+        <div className="order-1 lg:order-1">
+          <div className="aspect-square rounded-2xl sm:rounded-3xl bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 rounded-xl sm:rounded-2xl bg-gray-300 dark:bg-gray-700"></div>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Placeholder Image
               </p>
             </div>
+          </div>
+        </div>
 
-            {/* See More Button */}
-            <div className="flex items-center gap-2">
-              <Button
-                size="sm"
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                  service.isHighlighted
-                    ? "bg-white text-purple-600 hover:bg-gray-100"
-                    : "bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800"
+        {/* Right Side - Services Grid */}
+        <div className="order-2 lg:order-2">
+          {/* Services Grid with Staggered Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                className={`group relative rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 border cursor-pointer ${
+                  index % 2 === 0 ? "translate-y-0 sm:translate-y-12" : "translate-y-0 sm:translate-y-24"
+                } ${
+                  service.highlighted
+                    ? "bg-primary border-primary text-white shadow-lg shadow-primary/25"
+                    : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 hover:border-primary dark:hover:border-primary hover:shadow-lg"
                 }`}
               >
-                See more
-              </Button>
-              <ArrowUpRight
-                className={`w-4 h-4 ${
-                  service.isHighlighted ? "text-white" : "text-gray-600 dark:text-gray-300"
-                }`}
-              />
-            </div>
+                <div className="mb-4">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mb-3 ${
+                    service.highlighted
+                      ? "bg-white/20"
+                      : "bg-primary/10 group-hover:bg-primary/20"
+                  }`}>
+                    {service.icon === 'code' && <Code className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                      service.highlighted ? "text-white" : "text-primary"
+                    }`} />}
+                    {service.icon === 'palette' && <Palette className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                      service.highlighted ? "text-white" : "text-primary"
+                    }`} />}
+                    {service.icon === 'star' && <Star className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                      service.highlighted ? "text-white" : "text-primary"
+                    }`} />}
+                    {service.icon === 'trending-up' && <TrendingUp className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                      service.highlighted ? "text-white" : "text-primary"
+                    }`} />}
+                  </div>
+                  <h3
+                    className={`text-lg sm:text-xl font-bold mb-2 mt-8 transition-colors duration-300 ${
+                      service.highlighted
+                        ? "text-white"
+                        : "text-gray-900 dark:text-white"
+                    }`}
+                  >
+                    {service.title}
+                  </h3>
+                  <p
+                    className={`text-sm leading-relaxed mb-4 transition-colors duration-300 ${
+                      service.highlighted
+                        ? "text-white/90"
+                        : "text-gray-600 dark:text-gray-300"
+                    }`}
+                  >
+                    {service.description}
+                  </p>
+                </div>
+                <Button
+                  variant={service.highlighted ? "secondary" : "outline"}
+                  size="sm"
+                  className={`w-full transition-all duration-300 ${
+                    service.highlighted
+                      ? "bg-white text-primary hover:bg-white/90"
+                      : "border-primary text-primary hover:bg-primary hover:text-white"
+                  }`}
+                >
+                  See more
+                  <ArrowUpRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

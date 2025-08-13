@@ -12,31 +12,31 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Web development",
+    title: "E-Commerce Platform",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.",
-    category: "Digital marketing",
+      "A modern e-commerce solution with advanced filtering, secure payments, and mobile-first design that increased client sales by 150%.",
+    category: "Web Development",
   },
   {
     id: 2,
-    title: "Web development",
+    title: "FinTech Mobile App",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.",
-    category: "Digital marketing",
+      "Cross-platform mobile application for digital banking with biometric authentication and real-time transaction tracking.",
+    category: "Mobile App",
   },
   {
     id: 3,
-    title: "Web development",
+    title: "Brand Identity Redesign",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.",
-    category: "Digital marketing",
+      "Complete brand transformation including logo design, color palette, typography, and marketing materials for a tech startup.",
+    category: "Branding",
   },
   {
     id: 4,
-    title: "Web development",
+    title: "SaaS Dashboard",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.",
-    category: "Digital marketing",
+      "Intuitive analytics dashboard with data visualization, user management, and API integrations for a growing SaaS company.",
+    category: "UI/UX Design",
   },
 ];
 
@@ -49,39 +49,42 @@ export function ProjectsSection() {
       </div>
 
       {/* Masonry Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-6">
-        {projects.map((project) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
+        {projects.map((project, index) => (
           <div
             key={project.id}
-            className="odd:translate-y-10 even:translate-y-20  transition-all duration-300"
+            className={`transition-all duration-300 hover:scale-105 ${
+              index % 2 === 0 ? 'md:translate-y-8' : 'md:translate-y-16'
+            }`}
           >
             {/* Project Image Placeholder */}
-            <div className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 aspect-square relative rounded-3xl">
+            <div className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 aspect-[4/3] sm:aspect-square relative rounded-2xl md:rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               {/* Category Badge */}
-              <div className="absolute top-4 left-4">
-                <span className="bg-primary text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg">
+              <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                <span className="bg-primary text-white text-xs md:text-sm font-medium px-2 py-1 md:px-3 md:py-1 rounded-full shadow-lg">
                   {project.category}
                 </span>
               </div>
 
               {/* See More Button - positioned at bottom right */}
-              <div className="absolute bottom-4 right-4">
+              <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4">
                 <Button
                   size="sm"
-                  className="bg-primary text-white hover:from-purple-700 rounded-full px-4 py-2 text-xs font-medium flex items-center gap-1 shadow-lg"
+                  className="bg-primary text-white hover:bg-primary/90 rounded-full px-3 py-1.5 md:px-4 md:py-2 text-xs font-medium flex items-center gap-1 shadow-lg transition-all duration-300"
                 >
-                  See more
+                  <span className="hidden sm:inline">See more</span>
+                  <span className="sm:hidden">View</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </Button>
               </div>
             </div>
 
             {/* Project Content */}
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            <div className="p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2 md:mb-3">
                 {project.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
                 {project.description}
               </p>
             </div>

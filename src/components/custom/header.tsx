@@ -98,9 +98,22 @@ export function Header() {
         {/* Top Row */}
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <h1 className="text-lg sm:text-xl font-bold text-primary">
-              Pixel Crafters
+          <div className="flex items-center gap-2 ">
+            <Image
+              src="/images/logo.png"
+              alt="Pixel Crafters"
+              width={100}
+              height={100}
+              className="size-12 rounded-lg"
+            />
+            <h1 className="text-xl font-extrabold text-primary tracking-tight leading-none">
+              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                Pixel
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-primary/70 to-primary bg-clip-text text-transparent">
+                Crafters.
+              </span>
             </h1>
           </div>
 
