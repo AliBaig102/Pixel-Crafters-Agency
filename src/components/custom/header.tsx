@@ -2,10 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MapPin, Search, User, Moon, Sun, Menu, X } from "lucide-react";
+import { MapPin, Search, User, Moon, Sun, Menu, X, UserPlus } from "lucide-react";
 import { useTheme } from "@/contexts/theme-context";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -66,7 +67,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* Right Side - Theme Switcher and Login */}
+        {/* Right Side - Theme Switcher and Auth Buttons */}
         <div className="flex items-center gap-3">
           {/* Theme Switcher */}
           <Button
@@ -83,13 +84,25 @@ export function Header() {
           </Button>
 
           {/* Login */}
-          <Button
-            variant="ghost"
-            className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-primary/10 dark:hover:bg-gray-800 rounded-full px-4"
-          >
-            <User className="w-4 h-4" />
-            <span>Log In</span>
-          </Button>
+          <Link href="/login">
+            <Button
+              variant="ghost"
+              className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-primary/10 dark:hover:bg-gray-800 rounded-full px-4"
+            >
+              <User className="w-4 h-4" />
+              <span>Log In</span>
+            </Button>
+          </Link>
+
+          {/* Sign Up */}
+          <Link href="/signup">
+            <Button
+              className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-4"
+            >
+              <UserPlus className="w-4 h-4" />
+              <span>Sign Up</span>
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -192,14 +205,26 @@ export function Header() {
               </div>
             </div>
 
-            {/* Login Button */}
-            <Button
-              variant="ghost"
-              className="w-full justify-start gap-3 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-primary/10 dark:hover:bg-gray-800 rounded-lg p-3 h-auto"
-            >
-              <User className="w-5 h-5" />
-              <span>Log In</span>
-            </Button>
+            {/* Auth Buttons */}
+            <div className="space-y-2">
+              <Link href="/login" className="block">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start gap-3 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-primary/10 dark:hover:bg-gray-800 rounded-lg p-3 h-auto"
+                >
+                  <User className="w-5 h-5" />
+                  <span>Log In</span>
+                </Button>
+              </Link>
+              <Link href="/signup" className="block">
+                <Button
+                  className="w-full justify-start gap-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg p-3 h-auto"
+                >
+                  <UserPlus className="w-5 h-5" />
+                  <span>Sign Up</span>
+                </Button>
+              </Link>
+            </div>
           </div>
         )}
       </div>

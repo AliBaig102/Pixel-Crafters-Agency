@@ -214,7 +214,7 @@ export function ServicesSlider() {
             </div>
 
             {/* Custom Pagination */}
-            <div className="custom-pagination flex items-center gap-1 sm:gap-2"></div>
+            <div className="custom-pagination flex items-center gap-1 sm:gap-2 w-fit!"></div>
           </div>
         </div>
 
