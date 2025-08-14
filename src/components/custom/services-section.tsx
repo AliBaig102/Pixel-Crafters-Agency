@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { ArrowUpRight, Code, Palette, Star, TrendingUp } from "lucide-react";
+import Image from "next/image";
 
 interface Service {
   id: number;
@@ -49,13 +50,14 @@ export function ServicesSection() {
 
         {/* Left Side - Image */}
         <div className="order-1 lg:order-1">
-          <div className="aspect-square rounded-2xl sm:rounded-3xl bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 rounded-xl sm:rounded-2xl bg-gray-300 dark:bg-gray-700"></div>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Placeholder Image
-              </p>
-            </div>
+          <div className="aspect-square">
+            <Image
+              src="/images/services-image.png"
+              alt="services image"
+              width={500}
+              height={500}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 

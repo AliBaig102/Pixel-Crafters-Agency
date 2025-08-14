@@ -6,8 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "@/contexts/theme-context";
 
 export function LoginForm() {
+  const { theme } = useTheme();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -58,7 +60,7 @@ export function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50'} flex items-center justify-center p-4`}>
       <div className="w-full max-w-md">
         {/* Logo and Header */}
         <div className="text-center mb-8">
@@ -83,7 +85,7 @@ export function LoginForm() {
         </div>
 
         {/* Login Form */}
-        <div className="border border-border rounded-xl p-6 shadow-lg">
+        <div className={`${theme === 'dark' ? 'bg-gray-900' : 'bg-white'} border border-border rounded-xl p-6 shadow-lg`}>
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Email Field */}
             <div className="space-y-2">

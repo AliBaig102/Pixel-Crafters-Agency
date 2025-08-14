@@ -9,7 +9,7 @@ export function HeroSection() {
     <section className="container mx-auto relative min-h-screen transition-colors duration-300 mb-52 sm:mb-40 lg:mb-0">
       {/* Main Hero Content */}
       <div className="px-4 py-12 sm:py-16 lg:py-24 xl:py-36">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Mobile: Image First, Desktop: Content First */}
           <div className="order-2 lg:order-1 space-y-6 lg:space-y-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold leading-tight text-gray-900 dark:text-white">
@@ -47,29 +47,14 @@ export function HeroSection() {
 
           {/* Mobile: Image First, Desktop: Image Second */}
           <div className="order-1 lg:order-2 relative mt-16 lg:mt-0">
-            <div className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl overflow-hidden">
-              <div className="text-center text-gray-500 dark:text-gray-400 p-8">
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-primary/10 rounded-xl p-4 flex items-center justify-center">
-                    <Code className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="bg-primary/10 rounded-xl p-4 flex items-center justify-center">
-                    <Palette className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="bg-primary/10 rounded-xl p-4 flex items-center justify-center">
-                    <Zap className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="bg-primary/10 rounded-xl p-4 flex items-center justify-center">
-                    <Star className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Creative Digital Solutions
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                  Design • Development • Branding
-                </p>
-              </div>
+            <div className="aspect-square">
+              <Image
+                src="/images/hero-image.png"
+                alt="hero image"
+                width={500}
+                height={500}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

@@ -10,15 +10,15 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Maria Lorem",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    avatar: "ML"
+    name: "Sarah Johnson",
+    content: "Working with Pixel Crafters was a game-changer for our business. Their attention to detail and innovative approach transformed our website into a powerful marketing tool. The team's expertise in web development and design truly exceeded our expectations.",
+    avatar: "SJ"
   },
   {
     id: 2,
-    name: "Maria Lorem",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    avatar: "ML"
+    name: "Michael Chen",
+    content: "I'm thoroughly impressed with the professionalism and creativity of Pixel Crafters. They didn't just build us a website - they created a digital experience that perfectly represents our brand. Their responsive design work and technical implementation are top-notch.",
+    avatar: "MC"
   }
 ];
 

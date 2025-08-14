@@ -6,8 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, Mail, Lock, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "@/contexts/theme-context";
 
 export function SignupForm() {
+  const { theme } = useTheme();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -79,7 +81,7 @@ export function SignupForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50'} flex items-center justify-center p-4`}>
       <div className="w-full max-w-md">
         {/* Logo and Header */}
         <div className="text-center mb-8">
@@ -104,7 +106,7 @@ export function SignupForm() {
         </div>
 
         {/* Signup Form */}
-        <div className="border border-border rounded-xl p-6 shadow-lg">
+        <div className={`${theme === 'dark' ? 'bg-gray-900' : 'bg-white'} border border-border rounded-xl p-6 shadow-lg`}>
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name Field */}
             <div className="space-y-2">

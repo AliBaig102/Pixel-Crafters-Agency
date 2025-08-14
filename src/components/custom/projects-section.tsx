@@ -1,12 +1,15 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 interface Project {
   id: number;
   title: string;
   description: string;
   category: string;
+  image: string;
+
 }
 
 const projects: Project[] = [
@@ -15,6 +18,7 @@ const projects: Project[] = [
     title: "E-Commerce Platform",
     description:
       "A modern e-commerce solution with advanced filtering, secure payments, and mobile-first design that increased client sales by 150%.",
+    image: "/images/ecom.png",
     category: "Web Development",
   },
   {
@@ -22,13 +26,15 @@ const projects: Project[] = [
     title: "FinTech Mobile App",
     description:
       "Cross-platform mobile application for digital banking with biometric authentication and real-time transaction tracking.",
-    category: "Mobile App",
+    image: "/images/mobile.png",
+    category: "Mobile App",   
   },
   {
     id: 3,
     title: "Brand Identity Redesign",
     description:
       "Complete brand transformation including logo design, color palette, typography, and marketing materials for a tech startup.",
+    image: "/images/brand.png",
     category: "Branding",
   },
   {
@@ -36,6 +42,7 @@ const projects: Project[] = [
     title: "SaaS Dashboard",
     description:
       "Intuitive analytics dashboard with data visualization, user management, and API integrations for a growing SaaS company.",
+    image: "/images/sass.png",
     category: "UI/UX Design",
   },
 ];
@@ -59,6 +66,14 @@ export function ProjectsSection() {
           >
             {/* Project Image Placeholder */}
             <div className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 aspect-[4/3] sm:aspect-square relative rounded-2xl md:rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={500}
+              height={500}
+              className="object-cover w-full h-full rounded-2xl md:rounded-3xl"
+            />
+
               {/* Category Badge */}
               <div className="absolute top-3 left-3 md:top-4 md:left-4">
                 <span className="bg-primary text-white text-xs md:text-sm font-medium px-2 py-1 md:px-3 md:py-1 rounded-full shadow-lg">

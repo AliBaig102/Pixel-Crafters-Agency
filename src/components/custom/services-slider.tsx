@@ -21,12 +21,14 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 interface Service {
   id: number;
   title: string;
   description: string;
-  icon: string;
+  image: string;
+
 }
 
 const services: Service[] = [
@@ -35,42 +37,43 @@ const services: Service[] = [
     title: "Web Development",
     description:
       "Building modern, responsive websites and web apps with cutting-edge tech. Creating performant solutions that drive business growth.",
-    icon: "code",
+    image: "/images/web-development.png",
+
   },
   {
     id: 2,
     title: "UI/UX Design",
     description:
       "Creating beautiful, user-centered designs that combine aesthetics with intuitive functionality for exceptional digital experiences.",
-    icon: "palette",
+    image: "/images/ui-ux-design.png",
   },
   {
     id: 3,
     title: "Brand Identity",
     description:
       "Crafting memorable brand identities with logos, guidelines and visual systems that make your business stand out from competitors.",
-    icon: "star",
+    image: "/images/brand-identity.png",
   },
   {
     id: 4,
     title: "Digital Marketing",
     description:
       "Driving growth through strategic marketing campaigns. SEO, content, social media and paid ads to boost your online visibility.",
-    icon: "trending-up",
+    image: "/images/digital-marketing.png",
   },
   {
     id: 5,
     title: "E-commerce Solutions",
     description:
       "Building conversion-focused online stores with seamless UX and robust backend systems to power your digital retail success.",
-    icon: "shopping-cart",
+    image: "/images/e-commerce.png",
   },
   {
     id: 6,
     title: "Mobile App Development",
     description:
       "Developing engaging native and cross-platform mobile apps. From concept to launch, we create flawless mobile experiences.",
-    icon: "smartphone",
+    image: "/images/mobile-app.png",
   },
 ];
 
@@ -159,32 +162,14 @@ export function ServicesSlider() {
                   </p>
 
                   {/* Service Icon */}
-                  <div className="aspect-video rounded-xl sm:rounded-2xl flex items-center justify-center bg-gray-100 dark:bg-gray-800 group-hover:bg-white/20 group-hover:backdrop-blur-sm transition-all duration-300">
-                    <div className="text-center">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 rounded-lg sm:rounded-xl flex items-center justify-center bg-primary/10 group-hover:bg-white/20 transition-all duration-300">
-                        {service.icon === "code" && (
-                          <Code className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
-                        )}
-                        {service.icon === "palette" && (
-                          <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
-                        )}
-                        {service.icon === "star" && (
-                          <Star className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
-                        )}
-                        {service.icon === "trending-up" && (
-                          <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
-                        )}
-                        {service.icon === "shopping-cart" && (
-                          <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
-                        )}
-                        {service.icon === "smartphone" && (
-                          <Smartphone className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:text-white/70 transition-colors duration-300" />
-                        )}
-                      </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 group-hover:text-white/70 transition-colors duration-300">
-                        {service.title}
-                      </p>
-                    </div>
+                  <div className="aspect-video rounded-xl overflow-hidden sm:rounded-2xl flex items-center justify-center bg-gray-100 dark:bg-gray-800 group-hover:bg-white/20 group-hover:backdrop-blur-sm transition-all duration-300">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </SwiperSlide>
